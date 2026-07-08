@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme -->
+    <style name="Theme.JarvisAI" parent="android:Theme.Material.NoActionBar">
+        <item name="android:colorBackground">@color/jarvis_deep_black</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="Theme.JarvisAI.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/jarvis_deep_black</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_arc_reactor</item>
+        <item name="postSplashScreenTheme">@style/Theme.JarvisAI</item>
+    </style>
+</resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Iron Man Mask Silhouette -->
+    <!-- Head outline -->
+    <path
+        android:pathData="M54,8 C38,8 24,22 24,40 L24,60 C24,74 36,88 54,92 C72,88 84,74 84,60 L84,40 C84,22 70,8 54,8 Z"
+        android:fillColor="@color/jarvis_gunmetal"
+        android:strokeColor="@color/jarvis_red"
+        android:strokeWidth="1.5" />
+
+    <!-- Left Eye -->
+    <path
+        android:pathData="M36,42 L44,38 L48,44 L40,48 Z"
+        android:fillColor="@color/jarvis_blue_glow" />
+
+    <!-- Right Eye -->
+    <path
+        android:pathData="M72,42 L64,38 L60,44 L68,48 Z"
+        android:fillColor="@color/jarvis_blue_glow" />
+
+    <!-- Mouth Plate -->
+    <path
+        android:pathData="M40,62 L54,58 L68,62 L68,70 C68,74 62,78 54,78 C46,78 40,74 40,70 Z"
+        android:fillColor="@color/jarvis_gunmetal_light"
+        android:strokeColor="@color/jarvis_gunmetal_light"
+        android:strokeWidth="0.5" />
+
+    <!-- Face Center Line -->
+    <path
+        android:pathData="M54,30 L54,56"
+        android:strokeColor="@color/jarvis_red_dark"
+        android:strokeWidth="1"
+        android:fillColor="@android:color/transparent" />
+
+    <!-- Forehead Detail -->
+    <path
+        android:pathData="M38,28 L54,24 L70,28"
+        android:strokeColor="@color/jarvis_red"
+        android:strokeWidth="1"
+        android:fillColor="@android:color/transparent" />
+
+</vector>
