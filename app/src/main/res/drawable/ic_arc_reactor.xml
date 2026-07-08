@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Outer Ring -->
+    <path
+        android:pathData="M54,14 A40,40 0 1,1 53.99,14"
+        android:strokeColor="@color/jarvis_blue_glow"
+        android:strokeWidth="2"
+        android:fillColor="@android:color/transparent" />
+
+    <!-- Middle Ring -->
+    <path
+        android:pathData="M54,22 A32,32 0 1,1 53.99,22"
+        android:strokeColor="@color/jarvis_blue_accent"
+        android:strokeWidth="1.5"
+        android:fillColor="@android:color/transparent" />
+
+    <!-- Inner Ring -->
+    <path
+        android:pathData="M54,30 A24,24 0 1,1 53.99,30"
+        android:strokeColor="@color/jarvis_arc_reactor"
+        android:strokeWidth="1"
+        android:fillColor="@android:color/transparent" />
+
+    <!-- Core Triangle -->
+    <path
+        android:pathData="M54,40 L46,58 L62,58 Z"
+        android:strokeColor="@color/jarvis_arc_reactor"
+        android:strokeWidth="1.5"
+        android:fillColor="@color/jarvis_blue_glow"
+        android:fillAlpha="0.3" />
+
+    <!-- Center Dot -->
+    <path
+        android:pathData="M54,54 m-4,0 a4,4 0 1,1 8,0 a4,4 0 1,1 -8,0"
+        android:fillColor="@color/jarvis_arc_reactor" />
+
+</vector>

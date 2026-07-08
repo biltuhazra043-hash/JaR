@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Launcher Icon Foreground -->
+    <path
+        android:pathData="M54,20 C40,20 28,32 28,46 L28,58 C28,72 38,84 54,88 C70,84 80,72 80,58 L80,46 C80,32 68,20 54,20 Z"
+        android:fillColor="@color/jarvis_gunmetal" />
+    <path
+        android:pathData="M40,48 L46,45 L49,49 L43,52 Z"
+        android:fillColor="@color/jarvis_blue_glow" />
+    <path
+        android:pathData="M68,48 L62,45 L59,49 L65,52 Z"
+        android:fillColor="@color/jarvis_blue_glow" />
+</vector>

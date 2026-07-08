@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- JARVIS Iron Man Color Palette -->
+    <color name="jarvis_black">#FF000000</color>
+    <color name="jarvis_deep_black">#FF0A0A0A</color>
+    <color name="jarvis_dark_bg">#FF0D1117</color>
+    <color name="jarvis_gunmetal">#FF1C2128</color>
+    <color name="jarvis_gunmetal_light">#FF2D333B</color>
+    <color name="jarvis_red">#FFFF1744</color>
+    <color name="jarvis_red_dark">#FFD50000</color>
+    <color name="jarvis_blue_glow">#FF00B0FF</color>
+    <color name="jarvis_blue_accent">#FF40C4FF</color>
+    <color name="jarvis_arc_reactor">#FF80D8FF</color>
+    <color name="jarvis_gold">#FFFFD740</color>
+    <color name="jarvis_text_primary">#FFE6EDF3</color>
+    <color name="jarvis_text_secondary">#FF8B949E</color>
+    <color name="jarvis_text_tertiary">#FF6E7681</color>
+    <color name="jarvis_glass_bg">#33FFFFFF</color>
+    <color name="jarvis_glass_border">#1AFFFFFF</color>
+    <color name="jarvis_success">#FF4CAF50</color>
+    <color name="jarvis_warning">#FFFFC107</color>
+    <color name="jarvis_error">#FFFF5252</color>
+    <color name="jarvis_neon_blue">#FF00E5FF</color>
+    <color name="jarvis_neon_red">#FFFF1744</color>
+</resources>
