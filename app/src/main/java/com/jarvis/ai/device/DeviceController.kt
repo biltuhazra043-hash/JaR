@@ -127,7 +127,7 @@ class DeviceController @Inject constructor(
     fun setAlarm(hour: Int, minute: Int, message: String = "") {
         val intent = Intent(AlarmClock.ACTION_SET_ALARM).apply {
             putExtra(AlarmClock.EXTRA_HOUR, hour)
-            putExtra(AlarmClock.EXTRA_MINUTE, minute)
+            putExtra(AlarmClock.EXTRA_MINUTES, minute)
             putExtra(AlarmClock.EXTRA_MESSAGE, message)
             putExtra(AlarmClock.EXTRA_SKIP_UI, true)
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

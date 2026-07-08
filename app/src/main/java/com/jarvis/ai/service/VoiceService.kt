@@ -104,7 +104,7 @@ class VoiceService : Service() {
         tts?.speak(text, TextToSpeech.QUEUE_FLUSH, null, "jarvis_speech_${System.currentTimeMillis()}")
 
         // Listen for completion
-        tts?.setOnUtteranceProgressListener(object : android.speech.UtteranceProgressListener() {
+        tts?.setOnUtteranceProgressListener(object : android.speech.tts.UtteranceProgressListener() {
             override fun onStart(utteranceId: String?) {}
             override fun onDone(utteranceId: String?) {
                 isSpeaking = false

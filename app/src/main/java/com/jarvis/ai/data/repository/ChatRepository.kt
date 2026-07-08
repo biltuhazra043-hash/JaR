@@ -7,6 +7,7 @@ import com.jarvis.ai.data.preferences.JarvisPreferences
 import com.jarvis.ai.data.remote.ApiClient
 import com.jarvis.ai.data.remote.ChatMessage
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.firstOrNull
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -32,7 +33,7 @@ class ChatRepository @Inject constructor(
     }
 
     suspend fun getOrCreateActiveConversation(): String {
-        val active = conversationDao.getActiveConversation()
+        val active = conversationDao.getActiveConversation().firstOrNull()
         return active?.id ?: createConversation()
     }
 
@@ -59,7 +60,7 @@ class ChatRepository @Inject constructor(
     suspend fun getAiResponse(userMessage: String, conversationId: String): Result<String> {
         val messages = conversationDao.getRecentMessages(conversationId, limit = 20)
         val chatMessages = messages.map { ChatMessage(role = it.role, content = it.content) }
-        val systemPrompt = preferences.systemPrompt
+        val systemPrompt = preferences.systemPrompt.firstOrNull() ?: ""
         // Get active provider would come from AiProviderRepository
         return apiClient.sendChatCompletion(
             baseUrl = "https://openrouter.ai/api/v1",

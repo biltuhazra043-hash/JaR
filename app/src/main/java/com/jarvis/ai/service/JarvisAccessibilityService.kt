@@ -65,7 +65,7 @@ class JarvisAccessibilityService : AccessibilityService() {
     fun performGesture(path: Path, duration: Long = 300L, callback: GestureResultCallback? = null) {
         val stroke = GestureDescription.StrokeDescription(path, 0L, duration)
         val gesture = GestureDescription.Builder().addStroke(stroke).build()
-        dispatchGesture(gesture, callback ?: GestureResultCallback(), null)
+        dispatchGesture(gesture, callback ?: object : GestureResultCallback() {}, null)
     }
 
     fun performClick(x: Float, y: Float) {

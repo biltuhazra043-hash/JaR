@@ -279,7 +279,7 @@ fun TypingIndicator() {
             ) {
                 repeat(3) { index ->
                     val delay = index * 200
-                    androidx.compose.animation.core.AnimatedVisibility(
+                    AnimatedVisibility(
                         visible = true,
                         enter = fadeIn() + scaleIn()
                     ) {
