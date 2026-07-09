@@ -43,6 +43,7 @@ class DeviceController @Inject constructor(
     }
 
     // ---- Bluetooth ----
+    @Suppress("MissingPermission")
     fun toggleBluetooth(): Boolean {
         val bluetoothManager = context.getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
         val adapter = bluetoothManager.adapter ?: return false
