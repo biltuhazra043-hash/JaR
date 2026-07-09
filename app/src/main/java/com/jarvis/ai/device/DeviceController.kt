@@ -1,10 +1,12 @@
 package com.jarvis.ai.device
 
+import android.Manifest
 import android.app.NotificationManager
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothManager
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.media.AudioManager
 import android.net.Uri
 import android.net.wifi.WifiManager
@@ -17,7 +19,9 @@ import android.provider.ContactsContract
 import android.provider.Settings
 import android.telephony.SmsManager
 import android.webkit.MimeTypeMap
+import androidx.core.content.ContextCompat
 import java.io.File
+import java.util.Locale
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -43,7 +47,22 @@ class DeviceController @Inject constructor(
         val bluetoothManager = context.getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
         val adapter = bluetoothManager.adapter ?: return false
         val newState = !adapter.isEnabled
-        if (newState) adapter.enable() else adapter.disable()
+        val hasBluetoothPermission = ContextCompat.checkSelfPermission(
+            context,
+            Manifest.permission.BLUETOOTH_CONNECT
+        ) == PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
+            context,
+            Manifest.permission.BLUETOOTH_ADMIN
+        ) == PackageManager.PERMISSION_GRANTED
+
+        if (hasBluetoothPermission) {
+            try {
+                @Suppress("MissingPermission")
+                if (newState) adapter.enable() else adapter.disable()
+            } catch (_: SecurityException) {
+                return false
+            }
+        }
         return newState
     }
 
@@ -207,7 +226,11 @@ class DeviceController @Inject constructor(
 
     private fun formatBytes(bytes: Long): String {
         val gb = bytes / (1024.0 * 1024.0 * 1024.0)
-        return if (gb >= 1) String.format("%.1f GB", gb) else String.format("%.0f MB", bytes / (1024.0 * 1024.0))
+        return if (gb >= 1) {
+            String.format(Locale.US, "%.1f GB", gb)
+        } else {
+            String.format(Locale.US, "%.0f MB", bytes / (1024.0 * 1024.0))
+        }
     }
 
     // ---- Contacts ----
