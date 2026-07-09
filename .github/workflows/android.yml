@@ -24,28 +24,28 @@ jobs:
         with:
           distribution: temurin
           java-version: "21"
+          cache: gradle
 
       - name: Make Gradle wrapper executable
-        run: |
-          find . -name gradlew -exec chmod +x {} +
+        run: chmod +x gradlew
 
       - name: Install Android SDK
         run: |
           sudo apt-get update
           sudo apt-get install -y unzip wget
-
+          
           mkdir -p "$ANDROID_SDK_ROOT/cmdline-tools"
           cd "$ANDROID_SDK_ROOT/cmdline-tools"
-
+          
           wget -q https://dl.google.com/android/repository/commandlinetools-linux-latest.zip -O commandlinetools.zip
           unzip -q commandlinetools.zip
           mv cmdline-tools latest
-
+          
           yes | "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" \
             --sdk_root="$ANDROID_SDK_ROOT" \
             "platform-tools" \
             "platforms;android-35" \
-            "build-tools;35.0.0"
+            "build-tools;34.0.0"
 
       - name: Accept Android SDK licenses
         run: |
@@ -54,16 +54,22 @@ jobs:
             --licenses
 
       - name: Generate local.properties
-        run: |
-          echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
+        run: echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
 
       - name: Build Debug APK
-        run: |
-          ./gradlew assembleDebug
+        run: ./gradlew clean assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: my-android-app
-          path: |
-            **/build/outputs/apk/**/*.apk
+          name: app-debug-apk
+          path: app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 7
+
+      - name: Upload build reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-reports
+          path: app/build/reports/
+          retention-days: 7
